@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block div %}
+ <div class="content">
+<div class="error-wrapper rounded border bg-white px-5">
+	<div class="row justify-content-center align-items-center text-center">
+    <div class="row" style="margin-top: 20px;">
+      <div class="col"></div>
+      <div class="col-10" style="background-color: #fff;padding: 20px;">
+        <h3 class="page-title">{{ question.title }}</h3>
+        <p class="question-info">
+          <span>发布人：{{ question.author.username }}</span>
+          <span>时间： {{ question.create_time }}</span>
+        </p>
+        <hr>
+        <p class="question-content">{{ question.content }}</p>
+        <hr>
+        <h4 class="comment-group-title">评论(2): </h4>
+        <form action="#" method="post">
+          <div class="form-group">
+            <input type="text" placeholder="请填写评论" name="content" class="form-control">
+          </div>
+          <div class="form-group" style="text-align: right;">
+            <button class="btn btn-primary">评论</button>
+          </div>
+        </form>
+        <ul class="comment-group">
+          <li>
+            <div class="user-info">
+              <img src="" class="avatar" alt="">
+              <span class="username">xxxxx1</span>
+              <span class="create_time">20xx年x月xx日</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+	</div>
+</div>
+
+
+
+
+
+      </div> <!-- End Content -->
+{% endblock %}

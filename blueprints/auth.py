@@ -19,6 +19,21 @@ def index():
     return render_template("index.html")
 
 
+@bp.route("/contacts")
+def contacts():
+    return render_template("contacts.html")
+
+
+@bp.route("/team")
+def team():
+    return render_template("team.html")
+
+
+@bp.route("/user-profile")
+def userprofile():
+    return render_template("user-profile.html")
+
+
 @bp.route("/sign-in", methods=['GET', 'POST'])
 def signIn():
     # return "这是登录页面"
@@ -79,6 +94,7 @@ def register():
 def logout():
     session.clear()
     return redirect("/")
+
 
 # bp.route:如果没有指定methods参数，默认就是get请求
 @bp.route("/captcha/email")
