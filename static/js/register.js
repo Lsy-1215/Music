@@ -15,7 +15,7 @@ function bindEmailCaptchaClick() {
       success:function(result){
         var code = result['code'];
         if(code == 200){
-          var countdown = 10;
+          var countdown = 60;
           // 开始倒计时之前，就取消按钮的点击事件
           $this.off("click");
           var timer = setInterval(function(){
@@ -38,7 +38,7 @@ function bindEmailCaptchaClick() {
 // 可在控制台打印查看是否正确      console.log(result);
       },
       fail:function(error){
-        console.log(error);
+       console.log(error);
       }
     })
   });
