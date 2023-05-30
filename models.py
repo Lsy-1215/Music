@@ -28,3 +28,78 @@ class QuestionModel(db.Model):
     # 外键
     author_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     author = db.relationship(UserModel, backref="questions")
+
+
+class PopQuestionModel(db.Model):
+    __tablename__ = "pop"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    title = db.Column(db.String(100), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    create_time = db.Column(db.DateTime, default=datetime.now)
+
+    # 外键
+    author_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    author = db.relationship(UserModel, backref="popquestions")
+
+
+class RockQuestionModel(db.Model):
+    __tablename__ = "rock"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    title = db.Column(db.String(100), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    create_time = db.Column(db.DateTime, default=datetime.now)
+
+    # 外键
+    author_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    author = db.relationship(UserModel, backref="rockquestions")
+
+
+class AnswerModel(db.Model):
+    __tablename__ = "answer"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    content = db.Column(db.Text, nullable=False)
+    create_time = db.Column(db.DateTime, default=datetime.now)
+
+    # 外键
+    question_id = db.Column(db.Integer, db.ForeignKey("question.id"))
+    author_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+
+    # 关系
+    question = db.relationship(QuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
+    # pop = db.relationship(PopQuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
+    # rock = db.relationship(RockQuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
+    author = db.relationship(UserModel, backref="answer")
+
+
+class PopAnswerModel(db.Model):
+    __tablename__ = "popanswer"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    content = db.Column(db.Text, nullable=False)
+    create_time = db.Column(db.DateTime, default=datetime.now)
+
+    # 外键
+    question_id = db.Column(db.Integer, db.ForeignKey("pop.id"))
+    author_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+
+    # 关系
+    # question = db.relationship(QuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
+    question = db.relationship(PopQuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
+    # rock = db.relationship(RockQuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
+    author = db.relationship(UserModel, backref="popanswer")
+
+
+class RockAnswerModel(db.Model):
+    __tablename__ = "rockanswer"
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    content = db.Column(db.Text, nullable=False)
+    create_time = db.Column(db.DateTime, default=datetime.now)
+
+    # 外键
+    question_id = db.Column(db.Integer, db.ForeignKey("rock.id"))
+    author_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+
+    # 关系
+    question = db.relationship(RockQuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
+    # pop = db.relationship(PopQuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
+    # rock = db.relationship(RockQuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
+    author = db.relationship(UserModel, backref="rockanswer")

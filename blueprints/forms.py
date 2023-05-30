@@ -1,5 +1,5 @@
 import wtforms
-from wtforms.validators import Email, Length, EqualTo
+from wtforms.validators import Email, Length, EqualTo, InputRequired
 from models import UserModel, EmailCaptchaModel
 from exts import db
 
@@ -27,7 +27,7 @@ class RegisterForm(wtforms.Form):
         email = self.email.data
         captcha_model = EmailCaptchaModel.query.filter_by(email=email, captcha=captcha).first()
         if not captcha_model:
-            raise wtforms.ValidationError(message="邮箱或验证码错误！")
+            raise wtforms.ValidationError(message="邮箱与验证码匹配错误！")
         # todo:可以删掉captcha_model，但以下方式不推荐，会频繁操作数据库，可以写一个函数定期清理一次
         # else:
         #     db.session.delete(captcha_model)
@@ -41,5 +41,30 @@ class LoginForm(wtforms.Form):
 
 
 class QuestionForm(wtforms.Form):
-    title = wtforms.StringField(validators=[Length(min=3, max=100, message="标题格式错误！")])
+    title = wtforms.StringField(validators=[Length(min=1, max=100, message="标题格式错误！")])
     content = wtforms.StringField(validators=[Length(min=3, message="内容格式错误！")])
+
+
+class PopQuestionForm(wtforms.Form):
+    title = wtforms.StringField(validators=[Length(min=1, max=100, message="标题格式错误！")])
+    content = wtforms.StringField(validators=[Length(min=3, message="内容格式错误！")])
+
+
+class RockQuestionForm(wtforms.Form):
+    title = wtforms.StringField(validators=[Length(min=1, max=100, message="标题格式错误！")])
+    content = wtforms.StringField(validators=[Length(min=3, message="内容格式错误！")])
+
+
+class AnswerForm(wtforms.Form):
+    content = wtforms.StringField(validators=[Length(min=1, message="内容格式错误！")])
+    question_id = wtforms.IntegerField(validators=[InputRequired(message="必须要传入评论id!")])
+
+
+class PopAnswerForm(wtforms.Form):
+    content = wtforms.StringField(validators=[Length(min=1, message="内容格式错误！")])
+    question_id = wtforms.IntegerField(validators=[InputRequired(message="必须要传入评论id!")])
+
+
+class RockAnswerForm(wtforms.Form):
+    content = wtforms.StringField(validators=[Length(min=1, message="内容格式错误！")])
+    question_id = wtforms.IntegerField(validators=[InputRequired(message="必须要传入评论id!")])

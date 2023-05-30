@@ -1,14 +1,28 @@
 {% extends "base.html" %}
 {% block div %}
 <div class="content">
+    <div class="breadcrumb-wrapper breadcrumb-contacts">
+  <div>
+    <h1>主题曲音乐论坛热议</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb p-0">
+            <li class="breadcrumb-item">
+            </li>
+            <li class="breadcrumb-item">
+              论坛热议
+            </li>
+          </ol>
+        </nav>
+</div>
+  </div>
 <div class="card card-default mb-0">
   <div class="row bg-white no-gutters chat">
     <div class="col-lg-6 col-xl-7">
       <!-- Chat Left Side -->
       <div class="chat-left-side">
 
-        <form class="chat-search">
-          <input type="text" class="form-control" placeholder="Search...">
+        <form class="chat-search" method="get" action="{{ url_for('qa.search') }}">
+          <input type="search" class="form-control" placeholder="请输入关键字搜索" aria-label="Search" name="q">
         </form>
 
         <ul class="list-unstyled border-top mb-0" id="chat-left-content" data-simplebar>
@@ -16,7 +30,13 @@
           <li>
             <a href="{{ url_for('qa.qa_detail',qa_id=question.id)}}" class="media media-message">
             <div class="position-relative mr-3">
+               {% if question.author_id == 2 %}
+              <img class="rounded-circle" src="{{url_for('static', filename='img/user/u3.jpg')}}" alt="Image">
+              {% elif question.author_id == 3 %}
+              <img class="rounded-circle" src="{{url_for('static', filename='img/user/u8.jpg')}}" alt="Image">
+              {% else %}
               <img class="rounded-circle" src="{{url_for('static', filename='img/user/u1.jpg')}}" alt="Image">
+              {% endif %}
               <span class="status away"></span>
             </div>
             <div class="media-body d-flex justify-content-between">
@@ -317,7 +337,13 @@
       <!-- Chats -->
       <div class="chat-right-side">
         <div class="media media-chat align-items-center mb-0 media-chat-header" href="#">
-          <img class="rounded-circle mr-3" src="assets/img/user/u2.jpg" alt="Image">
+           {% if user.id == 2 %}
+          <img class="rounded-circle mr-3" src="{{ url_for('static', filename='img/user/u3.jpg')}}" alt="Image" />
+           {% elif user.id == 3 %}
+          <img class="rounded-circle mr-3" src="{{ url_for('static', filename='img/user/u8.jpg')}}" alt="Image">
+           {% else %}
+          <img class="rounded-circle mr-3" src="{{ url_for('static', filename='img/user/u7.jpg')}}" alt="Image">
+          {% endif %}
           <div class="media-body w-100">
             <div class="d-flex justify-content-between align-items-center">
               <h3 class="heading-title mb-0"><a href="#">发布评论</a></h3>
@@ -340,7 +366,7 @@
             <input type="text" name="title" class="form-control " placeholder="请输入标题">
           </div>
           <div class="form-group">
-            <textarea name="content" class="form-control" rows="10" placeholder="请输入内容"></textarea>
+            <textarea name="content" class="form-control" rows="9" placeholder="请输入内容"></textarea>
           </div>
           <div class="form-group">
             <button class="btn btn-primary">发布</button>

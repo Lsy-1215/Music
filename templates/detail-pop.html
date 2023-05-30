@@ -15,7 +15,7 @@
         <p class="question-content" style="color:black;">{{ question.content }}</p>
         <hr>
         <h4 class="comment-group-title" style="margin-bottom: 10px;color:black;">评论({{ question.answers|length}}): </h4>
-        <form action="{{ url_for('qa.public_answer')}}" method="post">
+        <form action="{{ url_for('qa.public_answer_pop')}}" method="post">
           <div class="form-group">
             <input type="text" placeholder="请填写评论" name="content" class="form-control">
             <input type="hidden" name="question_id" value="{{ question.id }}">

@@ -3,18 +3,18 @@
 <div class="content">
 <div class="breadcrumb-wrapper breadcrumb-contacts">
   <div>
-    <h1>论坛详情</h1>
+    <h1>论坛大亨</h1>
 
 
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb p-0">
             <li class="breadcrumb-item">
-              <a href="index.html">
-                <span class="mdi mdi-home"></span>
-              </a>
+<!--              <a href="index.html">-->
+<!--                <span class="mdi mdi-home"></span>-->
+<!--              </a>-->
             </li>
             <li class="breadcrumb-item">
-              论坛大亨
+              论坛详情
             </li>
 <!--            <li class="breadcrumb-item" aria-current="page">contacts</li>-->
           </ol>
@@ -22,35 +22,59 @@
 
   </div>
 
-  <div>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add-contact"> Add Contact
-    </button>
-  </div>
+<!--  <div>-->
+<!--    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add-contact"> Add Contact-->
+<!--    </button>-->
+<!--  </div>-->
 </div>
 
 <div class="row">
-  <div class="col-lg-6 col-xl-4">
-    <div class="card card-default p-4">
+  <div class="col-lg-6 col-xl-6">
+    <div class="card card-default p-6">
       <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact">
-        <img src="assets/img/user/u-xl-1.jpg" class="mr-3 img-fluid rounded" alt="Avatar Image">
+        <img src="{{ url_for('static', filename='img/user/heng1.png')}}" style="width:180px;height:120px;" class="mr-3 img-fluid rounded" alt="Avatar Image">
 
         <div class="media-body">
-          <h5 class="mt-0 mb-2 text-dark">Emma Smith</h5>
+          <h5 class="mt-0 mb-2 text-dark" style="margin-left:10px;">小美</h5>
 
           <ul class="list-unstyled">
-            <li class="d-flex mb-1">
+            <li class="d-flex mb-1" style="padding:10px;margin-top:20px;">
               <i class="mdi mdi-map mr-1"></i>
-              <span>Nulla vel metus 15/178</span>
+              <span>热评热度：1000</span>
             </li>
 
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-email mr-1"></i>
+            <li class="d-flex mb-1" style="padding:5px; margin-left:5px;">
+              <i class="mdi mdi-email mr-1" ></i>
               <span>exmaple@email.com</span>
             </li>
 
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-phone mr-1"></i>
-              <span>(123) 888 777 632</span>
+<!--            <li class="d-flex mb-1">-->
+<!--              <i class="mdi mdi-phone mr-1"></i>-->
+<!--              <span>热评热度：1000</span>-->
+<!--            </li>-->
+          </ul>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-xl-6">
+    <div class="card card-default p-6">
+      <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact2">
+        <img src="{{ url_for('static', filename='img/user/heng2.png')}}" style="width:180px;height:120px;" class="mr-3 img-fluid rounded" alt="Avatar Image">
+
+        <div class="media-body">
+          <h5 class="mt-0 mb-2 text-dark">樱桃小丸子</h5>
+
+          <ul class="list-unstyled">
+            <li class="d-flex mb-1" style="padding:10px;margin-top:20px;">
+              <i class="mdi mdi-map mr-1"></i>
+              <span>热评热度：999</span>
+            </li>
+
+            <li class="d-flex mb-1" style="padding:5px; margin-left:5px;">
+              <i class="mdi mdi-email mr-1"></i>
+              <span>exmaple@email.com</span>
             </li>
           </ul>
         </div>
@@ -58,28 +82,23 @@
     </div>
   </div>
 
-  <div class="col-lg-6 col-xl-4">
-    <div class="card card-default p-4">
-      <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact">
-        <img src="assets/img/user/u-xl-2.jpg" class="mr-3 img-fluid rounded" alt="Avatar Image">
+  <div class="col-lg-6 col-xl-6">
+    <div class="card card-default p-6">
+      <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact3">
+        <img src="{{ url_for('static', filename='img/user/heng3.png')}}" style="width:180px;height:120px;" class="mr-3 img-fluid rounded" alt="Avatar Image">
 
         <div class="media-body">
-          <h5 class="mt-0 mb-2 text-dark">Emma Smith</h5>
+          <h5 class="mt-0 mb-2 text-dark">熊熊</h5>
 
           <ul class="list-unstyled">
-            <li class="d-flex mb-1">
+            <li class="d-flex mb-1" style="padding:10px;margin-top:20px;">
               <i class="mdi mdi-map mr-1"></i>
-              <span>Nulla vel metus 15/178</span>
+              <span>热评热度：871</span>
             </li>
 
-            <li class="d-flex mb-1">
+            <li class="d-flex mb-1" style="padding:5px; margin-left:5px;">
               <i class="mdi mdi-email mr-1"></i>
               <span>exmaple@email.com</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-phone mr-1"></i>
-              <span>(123) 888 777 632</span>
             </li>
           </ul>
         </div>
@@ -87,28 +106,47 @@
     </div>
   </div>
 
-  <div class="col-lg-6 col-xl-4">
-    <div class="card card-default p-4">
-      <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact">
-        <img src="assets/img/user/u-xl-3.jpg" class="mr-3 img-fluid rounded" alt="Avatar Image">
+  <div class="col-lg-6 col-xl-6">
+    <div class="card card-default p-6">
+      <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact4">
+        <img src="{{ url_for('static', filename='img/user/heng4.png')}}" style="width:180px;height:120px;" class="mr-3 img-fluid rounded" alt="Avatar Image">
 
         <div class="media-body">
-          <h5 class="mt-0 mb-2 text-dark">Emma Smith</h5>
+          <h5 class="mt-0 mb-2 text-dark">小樱</h5>
 
           <ul class="list-unstyled">
-            <li class="d-flex mb-1">
+            <li class="d-flex mb-1" style="padding:10px;margin-top:20px;">
               <i class="mdi mdi-map mr-1"></i>
-              <span>Nulla vel metus 15/178</span>
+              <span>热评热度：777</span>
             </li>
 
-            <li class="d-flex mb-1">
+            <li class="d-flex mb-1" style="padding:5px; margin-left:5px;">
               <i class="mdi mdi-email mr-1"></i>
               <span>exmaple@email.com</span>
             </li>
+         </ul>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-xl-6">
+    <div class="card card-default p-6">
+      <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact5">
+        <img src="{{ url_for('static', filename='img/user/heng5.png')}}" style="width:180px;height:120px;" class="mr-3 img-fluid rounded" alt="Avatar Image">
+
+        <div class="media-body">
+          <h5 class="mt-0 mb-2 text-dark">乖shushu</h5>
+
+          <ul class="list-unstyled">
+            <li class="d-flex mb-1" style="padding:10px;margin-top:20px;">
+              <i class="mdi mdi-map mr-1"></i>
+              <span>热评热度：688</span>
+            </li>
 
             <li class="d-flex mb-1">
-              <i class="mdi mdi-phone mr-1"></i>
-              <span>(123) 888 777 632</span>
+              <i class="mdi mdi-email mr-1" style="padding:5px; margin-left:5px;"></i>
+              <span>exmaple@email.com</span>
             </li>
           </ul>
         </div>
@@ -116,257 +154,22 @@
     </div>
   </div>
 
-  <div class="col-lg-6 col-xl-4">
-    <div class="card card-default p-4">
-      <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact">
-        <img src="assets/img/user/u-xl-4.jpg" class="mr-3 img-fluid rounded" alt="Avatar Image">
-
+  <div class="col-lg-6 col-xl-6">
+    <div class="card card-default p-6">
+      <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact6">
+        <img src="{{ url_for('static', filename='img/user/heng6.png')}}" style="width:180px;height:120px;" class="mr-3 img-fluid rounded" alt="Avatar Image">
         <div class="media-body">
-          <h5 class="mt-0 mb-2 text-dark">Emma Smith</h5>
+          <h5 class="mt-0 mb-2 text-dark">溪溪</h5>
 
           <ul class="list-unstyled">
-            <li class="d-flex mb-1">
+            <li class="d-flex mb-1" style="padding:10px;margin-top:20px;">
               <i class="mdi mdi-map mr-1"></i>
-              <span>Nulla vel metus 15/178</span>
+              <span>热评热度：599</span>
             </li>
 
             <li class="d-flex mb-1">
-              <i class="mdi mdi-email mr-1"></i>
+              <i class="mdi mdi-email mr-1" style="padding:5px; margin-left:5px;"></i>
               <span>exmaple@email.com</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-phone mr-1"></i>
-              <span>(123) 888 777 632</span>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <div class="col-lg-6 col-xl-4">
-    <div class="card card-default p-4">
-      <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact">
-        <img src="assets/img/user/u-xl-5.jpg" class="mr-3 img-fluid rounded" alt="Avatar Image">
-
-        <div class="media-body">
-          <h5 class="mt-0 mb-2 text-dark">Emma Smith</h5>
-
-          <ul class="list-unstyled">
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-map mr-1"></i>
-              <span>Nulla vel metus 15/178</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-email mr-1"></i>
-              <span>exmaple@email.com</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-phone mr-1"></i>
-              <span>(123) 888 777 632</span>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <div class="col-lg-6 col-xl-4">
-    <div class="card card-default p-4">
-      <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact">
-        <img src="assets/img/user/u-xl-6.jpg" class="mr-3 img-fluid rounded" alt="Avatar Image">
-        <div class="media-body">
-          <h5 class="mt-0 mb-2 text-dark">Emma Smith</h5>
-
-          <ul class="list-unstyled">
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-map mr-1"></i>
-              <span>Nulla vel metus 15/178</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-email mr-1"></i>
-              <span>exmaple@email.com</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-phone mr-1"></i>
-              <span>(123) 888 777 632</span>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <div class="col-lg-6 col-xl-4">
-    <div class="card card-default p-4">
-      <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact">
-        <img src="assets/img/user/u-xl-7.jpg" class="mr-3 img-fluid rounded" alt="Avatar Image">
-
-        <div class="media-body">
-          <h5 class="mt-0 mb-2 text-dark">Emma Smith</h5>
-
-          <ul class="list-unstyled">
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-map mr-1"></i>
-              <span>Nulla vel metus 15/178</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-email mr-1"></i>
-              <span>exmaple@email.com</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-phone mr-1"></i>
-              <span>(123) 888 777 632</span>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <div class="col-lg-6 col-xl-4">
-    <div class="card card-default p-4">
-      <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact">
-        <img src="assets/img/user/u-xl-8.jpg" class="mr-3 img-fluid rounded" alt="Avatar Image">
-
-        <div class="media-body">
-          <h5 class="mt-0 mb-2 text-dark">Emma Smith</h5>
-
-          <ul class="list-unstyled">
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-map mr-1"></i>
-              <span>Nulla vel metus 15/178</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-email mr-1"></i>
-              <span>exmaple@email.com</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-phone mr-1"></i>
-              <span>(123) 888 777 632</span>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <div class="col-lg-6 col-xl-4">
-    <div class="card card-default p-4">
-      <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact">
-        <img src="assets/img/user/u-xl-9.jpg" class="mr-3 img-fluid rounded" alt="Avatar Image">
-
-        <div class="media-body">
-          <h5 class="mt-0 mb-2 text-dark">Emma Smith</h5>
-
-          <ul class="list-unstyled">
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-map mr-1"></i>
-              <span>Nulla vel metus 15/178</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-email mr-1"></i>
-              <span>exmaple@email.com</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-phone mr-1"></i>
-              <span>(123) 888 777 632</span>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <div class="col-lg-6 col-xl-4">
-    <div class="card card-default p-4">
-      <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact">
-        <img src="assets/img/user/u-xl-10.jpg" class="mr-3 img-fluid rounded" alt="Avatar Image">
-        <div class="media-body">
-          <h5 class="mt-0 mb-2 text-dark">Emma Smith</h5>
-
-          <ul class="list-unstyled">
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-map mr-1"></i>
-              <span>Nulla vel metus 15/178</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-email mr-1"></i>
-              <span>exmaple@email.com</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-phone mr-1"></i>
-              <span>(123) 888 777 632</span>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <div class="col-lg-6 col-xl-4">
-    <div class="card card-default p-4">
-      <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact">
-        <img src="assets/img/user/u-xl-11.jpg" class="mr-3 img-fluid rounded" alt="Avatar Image">
-
-        <div class="media-body">
-          <h5 class="mt-0 mb-2 text-dark">Emma Smith</h5>
-          <ul class="list-unstyled">
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-map mr-1"></i>
-              <span>Nulla vel metus 15/178</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-email mr-1"></i>
-              <span>exmaple@email.com</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-phone mr-1"></i>
-              <span>(123) 888 777 632</span>
-            </li>
-          </ul>
-        </div>
-      </a>
-    </div>
-  </div>
-
-  <div class="col-lg-6 col-xl-4">
-    <div class="card card-default p-4">
-      <a href="javascript:0" class="media text-secondary" data-toggle="modal" data-target="#modal-contact">
-        <img src="assets/img/user/u-xl-12.jpg" class="mr-3 img-fluid rounded" alt="Avatar Image">
-
-        <div class="media-body">
-          <h5 class="mt-0 mb-2 text-dark">Emma Smith</h5>
-
-          <ul class="list-unstyled">
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-map mr-1"></i>
-              <span>Nulla vel metus 15/178</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-email mr-1"></i>
-              <span>exmaple@email.com</span>
-            </li>
-
-            <li class="d-flex mb-1">
-              <i class="mdi mdi-phone mr-1"></i>
-              <span>(123) 888 777 632</span>
             </li>
           </ul>
         </div>
@@ -381,23 +184,149 @@
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header justify-content-end border-bottom-0">
-        <button type="button" class="btn-edit-icon" data-dismiss="modal" aria-label="Close">
-          <i class="mdi mdi-pencil"></i>
+<!--        <button type="button" class="btn-edit-icon" data-dismiss="modal" aria-label="Close">-->
+<!--          <i class="mdi mdi-pencil"></i>-->
+<!--        </button>-->
+
+<!--        <div class="dropdown">-->
+<!--          <button class="btn-dots-icon" type="button" id="dropdownMenuButton" data-toggle="dropdown"-->
+<!--            aria-haspopup="true" aria-expanded="false">-->
+<!--            <i class="mdi mdi-dots-vertical"></i>-->
+<!--          </button>-->
+
+<!--          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">-->
+<!--            <a class="dropdown-item" href="#">Action</a>-->
+<!--            <a class="dropdown-item" href="#">Another action</a>-->
+<!--            <a class="dropdown-item" href="#">Something else here</a>-->
+<!--          </div>-->
+<!--        </div>-->
+
+        <button type="button" class="btn-close-icon"  data-dismiss="modal" aria-label="Close">
+          <i class="mdi mdi-close"></i>
         </button>
+      </div>
 
-        <div class="dropdown">
-          <button class="btn-dots-icon" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <i class="mdi mdi-dots-vertical"></i>
-          </button>
+      <div class="modal-body pt-0">
+        <div class="row no-gutters">
+          <div class="col-md-6">
+            <div class="profile-content-left px-4">
+              <div class="card text-center widget-profile px-0 border-0">
+                <div class="card-img mx-auto rounded-circle">
+                  <img src="{{ url_for('static', filename='img/user/heng1.png')}}" style="width:100px;height:100px;" alt="user image">
+                </div>
 
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+                <div class="card-body">
+                  <h4 class="py-2 text-dark">小美</h4>
+                  <p>exmaple@email.com</p>
+                  <a class="btn btn-primary btn-pill btn-lg my-4" href="#">关注</a>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between ">
+                <div class="text-center pb-4">
+                  <h6 class="text-dark pb-2">1503</h6>
+                  <p>好友</p>
+                </div>
+
+                <div class="text-center pb-4">
+                  <h6 class="text-dark pb-2">2905</h6>
+                  <p>粉丝</p>
+                </div>
+
+                <div class="text-center pb-4">
+                  <h6 class="text-dark pb-2">1200</h6>
+                  <p>关注</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="contact-info px-4">
+              <h4 class="text-dark mb-1">热评荣誉</h4>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评热度</p>
+              <p>1000</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评点赞数</p>
+              <p>120</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评评论量</p>
+              <p>99</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评领域</p>
+              <p>流行音乐、摇滚音乐</p>
+            </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+  <div class="modal fade" id="modal-contact2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-end border-bottom-0">
+        <button type="button" class="btn-close-icon" data-dismiss="modal"  aria-label="Close">
+          <i class="mdi mdi-close"></i>
+        </button>
+      </div>
+
+      <div class="modal-body pt-0">
+        <div class="row no-gutters">
+          <div class="col-md-6">
+            <div class="profile-content-left px-4">
+              <div class="card text-center widget-profile px-0 border-0">
+                <div class="card-img mx-auto rounded-circle">
+                  <img src="{{ url_for('static', filename='img/user/heng2.png')}}" style="width:100px;height:100px;" alt="user image">
+                </div>
+
+                <div class="card-body">
+                  <h4 class="py-2 text-dark">樱桃小丸子</h4>
+                  <p>exmaple@email.com</p>
+                  <button class="btn btn-primary btn-pill btn-lg my-4" type="button" id="myButton4" data-complete-text="Loading finished">关注</button>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between ">
+                <div class="text-center pb-4">
+                  <h6 class="text-dark pb-2">1503</h6>
+                  <p>好友</p>
+                </div>
+
+                <div class="text-center pb-4">
+                  <h6 class="text-dark pb-2">2905</h6>
+                  <p>粉丝</p>
+                </div>
+
+                <div class="text-center pb-4">
+                  <h6 class="text-dark pb-2">1200</h6>
+                  <p>关注</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="contact-info px-4">
+              <h4 class="text-dark mb-1">热评荣誉</h4>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评热度</p>
+              <p>999</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评点赞数</p>
+              <p>110</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评评论量</p>
+              <p>89</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评领域</p>
+              <p>流行音乐、摇滚音乐</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="modal fade" id="modal-contact3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-end border-bottom-0">
         <button type="button" class="btn-close-icon" data-dismiss="modal" aria-label="Close">
           <i class="mdi mdi-close"></i>
         </button>
@@ -409,30 +338,30 @@
             <div class="profile-content-left px-4">
               <div class="card text-center widget-profile px-0 border-0">
                 <div class="card-img mx-auto rounded-circle">
-                  <img src="assets/img/user/u6.jpg" alt="user image">
+                  <img src="{{ url_for('static', filename='img/user/heng3.png')}}" style="width:100px;height:100px;" alt="user image">
                 </div>
 
                 <div class="card-body">
-                  <h4 class="py-2 text-dark">Albrecht Straub</h4>
-                  <p>Albrecht.straub@gmail.com</p>
-                  <a class="btn btn-primary btn-pill btn-lg my-4" href="#">Follow</a>
+                  <h4 class="py-2 text-dark">熊熊</h4>
+                  <p>exmaple@email.com</p>
+                  <a class="btn btn-primary btn-pill btn-lg my-4" href="#">关注</a>
                 </div>
               </div>
 
               <div class="d-flex justify-content-between ">
                 <div class="text-center pb-4">
-                  <h6 class="text-dark pb-2">1503</h6>
-                  <p>Friends</p>
+                  <h6 class="text-dark pb-2">1003</h6>
+                  <p>好友</p>
                 </div>
 
                 <div class="text-center pb-4">
-                  <h6 class="text-dark pb-2">2905</h6>
-                  <p>Followers</p>
+                  <h6 class="text-dark pb-2">2505</h6>
+                  <p>粉丝</p>
                 </div>
 
                 <div class="text-center pb-4">
-                  <h6 class="text-dark pb-2">1200</h6>
-                  <p>Following</p>
+                  <h6 class="text-dark pb-2">100</h6>
+                  <p>关注</p>
                 </div>
               </div>
             </div>
@@ -440,15 +369,15 @@
 
           <div class="col-md-6">
             <div class="contact-info px-4">
-              <h4 class="text-dark mb-1">Contact Details</h4>
-              <p class="text-dark font-weight-medium pt-4 mb-2">Email address</p>
-              <p>Albrecht.straub@gmail.com</p>
-              <p class="text-dark font-weight-medium pt-4 mb-2">Phone Number</p>
-              <p>+99 9539 2641 31</p>
-              <p class="text-dark font-weight-medium pt-4 mb-2">Birthday</p>
-              <p>Nov 15, 1990</p>
-              <p class="text-dark font-weight-medium pt-4 mb-2">Event</p>
-              <p>Lorem, ipsum dolor</p>
+              <h4 class="text-dark mb-1">热评荣誉</h4>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评热度</p>
+              <p>871</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评点赞数</p>
+              <p>98</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评评论量</p>
+              <p>81</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评领域</p>
+              <p>流行音乐、摇滚音乐</p>
             </div>
           </div>
         </div>
@@ -456,6 +385,206 @@
     </div>
   </div>
 </div>
+
+  <div class="modal fade" id="modal-contact4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-end border-bottom-0">
+        <button type="button" class="btn-close-icon" data-dismiss="modal" aria-label="Close">
+          <i class="mdi mdi-close"></i>
+        </button>
+      </div>
+
+      <div class="modal-body pt-0">
+        <div class="row no-gutters">
+          <div class="col-md-6">
+            <div class="profile-content-left px-4">
+              <div class="card text-center widget-profile px-0 border-0">
+                <div class="card-img mx-auto rounded-circle">
+                  <img src="{{ url_for('static', filename='img/user/heng4.png')}}" style="width:100px;height:100px;" alt="user image">
+                </div>
+
+                <div class="card-body">
+                  <h4 class="py-2 text-dark">小樱</h4>
+                  <p>exmaple@email.com</p>
+                  <a class="btn btn-primary btn-pill btn-lg my-4" href="#">关注</a>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between ">
+                <div class="text-center pb-4">
+                  <h6 class="text-dark pb-2">106</h6>
+                  <p>好友</p>
+                </div>
+
+                <div class="text-center pb-4">
+                  <h6 class="text-dark pb-2">2200</h6>
+                  <p>粉丝</p>
+                </div>
+
+                <div class="text-center pb-4">
+                  <h6 class="text-dark pb-2">109</h6>
+                  <p>关注</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="contact-info px-4">
+              <h4 class="text-dark mb-1">热评荣誉</h4>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评热度</p>
+              <p>777</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评点赞数</p>
+              <p>90</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评评论量</p>
+              <p>71</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评领域</p>
+              <p>流行音乐、摇滚音乐</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="modal fade" id="modal-contact5" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-end border-bottom-0">
+        <button type="button" class="btn-close-icon" data-dismiss="modal" aria-label="Close">
+          <i class="mdi mdi-close"></i>
+        </button>
+      </div>
+
+      <div class="modal-body pt-0">
+        <div class="row no-gutters">
+          <div class="col-md-6">
+            <div class="profile-content-left px-4">
+              <div class="card text-center widget-profile px-0 border-0">
+                <div class="card-img mx-auto rounded-circle">
+                  <img src="{{ url_for('static', filename='img/user/heng5.png')}}" style="width:100px;height:100px;" alt="user image">
+                </div>
+
+                <div class="card-body">
+                  <h4 class="py-2 text-dark">乖shushu</h4>
+                  <p>exmaple@email.com</p>
+                  <a class="btn btn-primary btn-pill btn-lg my-4" href="#">关注</a>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between ">
+                <div class="text-center pb-4">
+                  <h6 class="text-dark pb-2">101</h6>
+                  <p>好友</p>
+                </div>
+
+                <div class="text-center pb-4">
+                  <h6 class="text-dark pb-2">2100</h6>
+                  <p>粉丝</p>
+                </div>
+
+                <div class="text-center pb-4">
+                  <h6 class="text-dark pb-2">188</h6>
+                  <p>关注</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="contact-info px-4">
+              <h4 class="text-dark mb-1">热评荣誉</h4>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评热度</p>
+              <p>666</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评点赞数</p>
+              <p>89</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评评论量</p>
+              <p>65</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评领域</p>
+              <p>流行音乐、摇滚音乐</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="modal fade" id="modal-contact6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header justify-content-end border-bottom-0">
+        <button type="button" class="btn-close-icon" data-dismiss="modal" aria-label="Close">
+          <i class="mdi mdi-close"></i>
+        </button>
+      </div>
+
+      <div class="modal-body pt-0">
+        <div class="row no-gutters">
+          <div class="col-md-6">
+            <div class="profile-content-left px-4">
+              <div class="card text-center widget-profile px-0 border-0">
+                <div class="card-img mx-auto rounded-circle">
+                  <img src="{{ url_for('static', filename='img/user/heng6.png')}}" style="width:100px;height:100px;" alt="user image">
+                </div>
+
+                <div class="card-body">
+                  <h4 class="py-2 text-dark">溪溪</h4>
+                  <p>exmaple@email.com</p>
+                  <a class="btn btn-primary btn-pill btn-lg my-4" href="#">关注</a>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between ">
+                <div class="text-center pb-4">
+                  <h6 class="text-dark pb-2">100</h6>
+                  <p>好友</p>
+                </div>
+
+                <div class="text-center pb-4">
+                  <h6 class="text-dark pb-2">2000</h6>
+                  <p>粉丝</p>
+                </div>
+
+                <div class="text-center pb-4">
+                  <h6 class="text-dark pb-2">100</h6>
+                  <p>关注</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="contact-info px-4">
+              <h4 class="text-dark mb-1">热评荣誉</h4>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评热度</p>
+              <p>599</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评点赞数</p>
+              <p>80</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评评论量</p>
+              <p>66</p>
+              <p class="text-dark font-weight-medium pt-4 mb-2">热评领域</p>
+              <p>流行音乐、摇滚音乐</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    $(function() {
+		$("#myButton4").click(function(){
+			$(this).button('loading').delay(1000).queue(function() {
+				$(this).button('complete');
+			});
+		});
+	});
+</script>
+
 
 <!-- Add Contact Button  -->
 <div class="modal fade" id="modal-add-contact" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
