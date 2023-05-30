@@ -183,14 +183,15 @@
       <div class="profile-content-right profile-right-spacing py-3">
         <ul class="nav nav-tabs px-3 px-xl-5 nav-style-border" id="myTab" role="tablist">
           <li class="nav-item">
-            <a class="nav-link active" id="timeline-tab" data-toggle="tab" href="#timeline" role="tab" aria-controls="timeline" aria-selected="true">评论记录</a>
+            <a class="nav-link active" id="timeline-tab" data-toggle="tab" href="#timeline" role="tab" aria-controls="timeline" aria-selected="true">点评发表记录</a>
           </li>
         </ul>
 
         <div class="tab-content px-3 px-xl-5" id="myTabContent">
           <div class="tab-pane fade show active" id="timeline" role="tabpanel" aria-labelledby="timeline-tab">
             {% if user %}
-                {% for question in questions %}
+            {% for question in questions %}
+            {% if user.id == question.author_id %}
             <div class="media mt-1 profile-timeline-media timeline-media-spacing alert alert-dismissible fade show" role="alert">
               <div class="align-self-start iconbox-45 overflow-hidden mr-3">
                 {% if question.author_id == 2 %}
@@ -202,34 +203,43 @@
                 {% endif %}
               </div>
               <div class="media-body">
+                <form action="{{ url_for('qa.delete_zhuti')}}" method="post">
                 <h6 class="mt-0 text-dark">{{question.author.username}}</h6>
+                  <input type="hidden" name="question_id" value="{{ question.id }}">
 <!--                <span class="float-right">{{question.create_time}}</span>-->
                 <span class=" font-size-12 d-inline-block float-right" style="color:#8A909D;"><i class="mdi mdi-clock-outline"></i> {{question.create_time}}</span>
-                <p>{{ question.content }}</p>
+                  <div class="message-contents" >
+                   <h5 class="font-weight-bold" style="margin-top:15px;">{{ question.title }}</h5>
+                   <p style="margin-top:15px;">{{ question.content }}</p>
+                 </div>
+                  <button class="btn btn-light float-right">
+<!--                    <span  data-dismiss="alert" aria-label="Close">-->
+                   <svg class="remove-task" id="Capa_1" enable-background="new 0 0 515.556 515.556" height="16" viewBox="0 0 515.556 515.556" width="16" xmlns="http://www.w3.org/2000/svg">
+                     <path class="" d="m64.444 451.111c0 35.526 28.902 64.444 64.444 64.444h257.778c35.542 0 64.444-28.918 64.444-64.444v-322.222h-386.666z"></path><path d="m322.222 32.222v-32.222h-128.889v32.222h-161.111v64.444h451.111v-64.444z"></path></svg>
+<!--                 </span>-->
+                  </button>
+                </form>
 
-                {% if question.id == 1 %}
-                <div class="d-inline-block rounded overflow-hidden mt-3 mr-0 mr-lg-3">
-                  <img src="{{ url_for('static', filename='img/products/pa1.jpg')}}" style="width:200px;height:153px;" alt="Product">
-                </div>
-                {% elif question.id == 2 %}
-                <div class="d-inline-block rounded overflow-hidden mt-3 mr-0 mr-lg-3">
-                  <img src="{{ url_for('static', filename='img/products/pa2.jpg')}}" style="width:200px;height:153px;" alt="Product">
-                </div>
-                {% else %}
-                <div class="d-inline-block rounded overflow-hidden mt-3 mr-0 mr-lg-3">
-                  <img src="{{ url_for('static', filename='img/products/pa3.jpg')}}" style="width:200px;height:153px;" alt="Product">
-                </div>
-                {% endif %}
-               <div class="task-content">
-                 <span data-dismiss="alert" aria-label="Close">
-                   <svg class="remove-task" id="Capa_1" enable-background="new 0 0 515.556 515.556" height="16" viewBox="0 0 515.556 515.556" width="16" xmlns="http://www.w3.org/2000/svg"><path class="" d="m64.444 451.111c0 35.526 28.902 64.444 64.444 64.444h257.778c35.542 0 64.444-28.918 64.444-64.444v-322.222h-386.666z"></path><path d="m322.222 32.222v-32.222h-128.889v32.222h-161.111v64.444h451.111v-64.444z"></path></svg>
-                 </span>
-               </div>
+<!--                {% if question.id == 1 %}-->
+<!--                <div class="d-inline-block rounded overflow-hidden mt-3 mr-0 mr-lg-3">-->
+<!--                  <img src="{{ url_for('static', filename='img/products/pa1.jpg')}}" style="width:200px;height:153px;" alt="Product">-->
+<!--                </div>-->
+<!--                {% elif question.id == 2 %}-->
+<!--                <div class="d-inline-block rounded overflow-hidden mt-3 mr-0 mr-lg-3">-->
+<!--                  <img src="{{ url_for('static', filename='img/products/pa2.jpg')}}" style="width:200px;height:153px;" alt="Product">-->
+<!--                </div>-->
+<!--                {% else %}-->
+<!--                <div class="d-inline-block rounded overflow-hidden mt-3 mr-0 mr-lg-3">-->
+<!--                  <img src="{{ url_for('static', filename='img/products/pa3.jpg')}}" style="width:200px;height:153px;" alt="Product">-->
+<!--                </div>-->
+<!--                {% endif %}-->
               </div>
             </div>
-                {% endfor %}
+             {% endif %}
+            {% endfor %}
 
                 {% for question in popquestions %}
+             {% if user.id == question.author_id %}
             <div class="media mt-1 profile-timeline-media timeline-media-spacing alert alert-dismissible fade show" role="alert">
               <div class="align-self-start iconbox-45 overflow-hidden mr-3">
                 {% if question.author_id == 2 %}
@@ -240,34 +250,32 @@
                 <img  src="{{ url_for('static', filename='img/user/u7.jpg')}}" class="img-fluid rounded-circle" alt="Generic placeholder image">
                 {% endif %}
               </div>
-                 <div class="media-body">
-                <h6 class="mt-0 text-dark">{{question.author.username}}</h6>
-                 <span class=" font-size-12 d-inline-block float-right" style="color:#8A909D;"><i class="mdi mdi-clock-outline"></i> {{question.create_time}}</span>
-                <p>{{ question.content }}</p>
 
-                 {% if question.id == 1 %}
-                <div class="d-inline-block rounded overflow-hidden mt-3 mr-0 mr-lg-3">
-                  <img src="{{ url_for('static', filename='img/products/pa1.jpg')}}" style="width:200px;height:153px;" alt="Product">
-                </div>
-                {% elif question.id == 2 %}
-                <div class="d-inline-block rounded overflow-hidden mt-3 mr-0 mr-lg-3">
-                  <img src="{{ url_for('static', filename='img/products/pa2.jpg')}}" style="width:200px;height:153px;" alt="Product">
-                </div>
-                {% else %}
-                <div class="d-inline-block rounded overflow-hidden mt-3 mr-0 mr-lg-3">
-                  <img src="{{ url_for('static', filename='img/products/pa3.jpg')}}" style="width:200px;height:153px;" alt="Product">
-                </div>
-                {% endif %}
-               <div class="task-content">
-                 <span data-dismiss="alert" aria-label="Close">
-                   <svg class="remove-task" id="Capa_1" enable-background="new 0 0 515.556 515.556" height="16" viewBox="0 0 515.556 515.556" width="16" xmlns="http://www.w3.org/2000/svg"><path class="" d="m64.444 451.111c0 35.526 28.902 64.444 64.444 64.444h257.778c35.542 0 64.444-28.918 64.444-64.444v-322.222h-386.666z"></path><path d="m322.222 32.222v-32.222h-128.889v32.222h-161.111v64.444h451.111v-64.444z"></path></svg>
-                 </span>
-               </div>
+
+                 <div class="media-body">
+                   <form action="{{ url_for('qa.delete_pop')}}" method="post">
+                   <h6 class="mt-0 text-dark" >{{question.author.username}}</h6>
+                   <input type="hidden" name="question_id" value="{{ question.id }}">
+                 <span class=" font-size-12 d-inline-block float-right" style="color:#8A909D;"><i class="mdi mdi-clock-outline"></i> {{question.create_time}}</span>
+                 <div class="message-contents" >
+                   <h5 class="font-weight-bold" style="margin-top:15px;">{{ question.title }}</h5>
+                   <p style="margin-top:15px;">{{ question.content }}</p>
+                 </div>
+                  <button class="btn btn-light float-right">
+<!--                    <span  data-dismiss="alert" aria-label="Close">-->
+                   <svg class="remove-task" id="Capa_1" enable-background="new 0 0 515.556 515.556" height="16" viewBox="0 0 515.556 515.556" width="16" xmlns="http://www.w3.org/2000/svg">
+                     <path class="" d="m64.444 451.111c0 35.526 28.902 64.444 64.444 64.444h257.778c35.542 0 64.444-28.918 64.444-64.444v-322.222h-386.666z"></path><path d="m322.222 32.222v-32.222h-128.889v32.222h-161.111v64.444h451.111v-64.444z"></path></svg>
+<!--                 </span>-->
+                  </button>
+                    </form>
               </div>
             </div>
-                {% endfor %}
+            {% endif %}
+            {% endfor %}
+
 
                 {% for question in rockquestions %}
+             {% if user.id == question.author_id %}
             <div class="media mt-1 profile-timeline-media timeline-media-spacing alert alert-dismissible fade show" role="alert">
               <div class="align-self-start iconbox-45 overflow-hidden mr-3">
                 {% if question.author_id == 2 %}
@@ -280,30 +288,38 @@
               </div>
 
               <div class="media-body">
-              <h6 class="mt-0 text-dark">{{question.author.username}}</h6>
+                <form action="{{ url_for('qa.delete_rock')}}" method="post">
+                <h6 class="mt-0 text-dark">{{question.author.username}}</h6>
+                  <input type="hidden" name="question_id" value="{{ question.id }}">
                  <span class=" font-size-12 d-inline-block float-right" style="color:#8A909D;"><i class="mdi mdi-clock-outline"></i> {{question.create_time}}</span>
-               <p>{{ question.content }}</p>
+              <div class="message-contents" >
+                   <h5 class="font-weight-bold" style="margin-top:15px;">{{ question.title }}</h5>
+                   <p style="margin-top:15px;">{{ question.content }}</p>
+                 </div>
+                  <button class="btn btn-light float-right">
+<!--                    <span  data-dismiss="alert" aria-label="Close">-->
+                   <svg class="remove-task" id="Capa_1" enable-background="new 0 0 515.556 515.556" height="16" viewBox="0 0 515.556 515.556" width="16" xmlns="http://www.w3.org/2000/svg">
+                     <path class="" d="m64.444 451.111c0 35.526 28.902 64.444 64.444 64.444h257.778c35.542 0 64.444-28.918 64.444-64.444v-322.222h-386.666z"></path><path d="m322.222 32.222v-32.222h-128.889v32.222h-161.111v64.444h451.111v-64.444z"></path></svg>
+<!--                 </span>-->
+                  </button>
+                </form>
 
-               {% if question.id == 1 %}
-                <div class="d-inline-block rounded overflow-hidden mt-3 mr-0 mr-lg-3">
-                  <img src="{{ url_for('static', filename='img/products/pa1.jpg')}}" style="width:200px;height:153px;" alt="Product">
-                </div>
-                {% elif question.id == 2 %}
-                <div class="d-inline-block rounded overflow-hidden mt-3 mr-0 mr-lg-3">
-                  <img src="{{ url_for('static', filename='img/products/pa2.jpg')}}" style="width:200px;height:153px;" alt="Product">
-                </div>
-                {% else %}
-                <div class="d-inline-block rounded overflow-hidden mt-3 mr-0 mr-lg-3">
-                  <img src="{{ url_for('static', filename='img/products/pa3.jpg')}}" style="width:200px;height:153px;" alt="Product">
-                </div>
-                {% endif %}
-               <div class="task-content">
-                 <span data-dismiss="alert" aria-label="Close">
-                   <svg class="remove-task" id="Capa_1" enable-background="new 0 0 515.556 515.556" height="16" viewBox="0 0 515.556 515.556" width="16" xmlns="http://www.w3.org/2000/svg"><path class="" d="m64.444 451.111c0 35.526 28.902 64.444 64.444 64.444h257.778c35.542 0 64.444-28.918 64.444-64.444v-322.222h-386.666z"></path><path d="m322.222 32.222v-32.222h-128.889v32.222h-161.111v64.444h451.111v-64.444z"></path></svg>
-                 </span>
-               </div>
+<!--               {% if question.id == 1 %}-->
+<!--                <div class="d-inline-block rounded overflow-hidden mt-3 mr-0 mr-lg-3">-->
+<!--                  <img src="{{ url_for('static', filename='img/products/pa1.jpg')}}" style="width:200px;height:153px;" alt="Product">-->
+<!--                </div>-->
+<!--                {% elif question.id == 2 %}-->
+<!--                <div class="d-inline-block rounded overflow-hidden mt-3 mr-0 mr-lg-3">-->
+<!--                  <img src="{{ url_for('static', filename='img/products/pa2.jpg')}}" style="width:200px;height:153px;" alt="Product">-->
+<!--                </div>-->
+<!--                {% else %}-->
+<!--                <div class="d-inline-block rounded overflow-hidden mt-3 mr-0 mr-lg-3">-->
+<!--                  <img src="{{ url_for('static', filename='img/products/pa3.jpg')}}" style="width:200px;height:153px;" alt="Product">-->
+<!--                </div>-->
+<!--                {% endif %}-->
               </div>
             </div>
+            {% endif %}
             {% endfor %}
             {% else %}
 <!--            <p>请先登录</p>-->

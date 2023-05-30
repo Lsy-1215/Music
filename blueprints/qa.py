@@ -195,6 +195,35 @@ def search_rock():
       return render_template("rock-chat.html", rockquestions=rockquestions)
 
 
+@bp.route("/delete_zhuti", methods=['POST'])
+def delete_zhuti():
+    question_id = request.form.get("question_id")
+    zhuti1 = QuestionModel.query.filter(QuestionModel.id == question_id).first()
+    db.session.delete(zhuti1)
+    db.session.commit()
+    # return render_template("user-profile.html")  错误
+    return redirect("/user-profile")
+
+
+@bp.route("/delete_pop", methods=['POST'])
+def delete_pop():
+    question_id = request.form.get("question_id")
+    pop1 = PopQuestionModel.query.filter(PopQuestionModel.id == question_id).first()
+    db.session.delete(pop1)
+    db.session.commit()
+    # return render_template("user-profile.html")  错误
+    return redirect("/user-profile")
+
+
+@bp.route("/delete_rock", methods=['POST'])
+def delete_rock():
+    question_id = request.form.get("question_id")
+    rock1 = RockQuestionModel.query.filter(RockQuestionModel.id == question_id).first()
+    db.session.delete(rock1)
+    db.session.commit()
+    # return render_template("user-profile.html")  错误
+    return redirect("/user-profile")
+
 
 
 
