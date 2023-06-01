@@ -107,7 +107,7 @@ def get_email_captcha():
     captcha = random.sample(source, 4)
     # 将列表变成字符串
     captcha = "".join(captcha)
-    message = Message(subject="demo验证码", recipients=[email], body=f"您的验证码是:{captcha}")
+    message = Message(subject="音乐论坛验证码", recipients=[email], body=f"您的验证码是:{captcha}")
     mail.send(message)
     # memchched/redis
     # 用数据库的方式存储(相对较慢）

@@ -66,8 +66,6 @@ class AnswerModel(db.Model):
 
     # 关系
     question = db.relationship(QuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
-    # pop = db.relationship(PopQuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
-    # rock = db.relationship(RockQuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
     author = db.relationship(UserModel, backref="answer")
 
 
@@ -81,11 +79,9 @@ class PopAnswerModel(db.Model):
     question_id = db.Column(db.Integer, db.ForeignKey("pop.id"))
     author_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
-    # 关系
-    # question = db.relationship(QuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
-    question = db.relationship(PopQuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
-    # rock = db.relationship(RockQuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
-    author = db.relationship(UserModel, backref="popanswer")
+    # 关系 以下两句中使用popanswers，保持一致
+    question = db.relationship(PopQuestionModel, backref=db.backref("popanswers", order_by=create_time.desc()))
+    author = db.relationship(UserModel, backref="popanswers")
 
 
 class RockAnswerModel(db.Model):
@@ -99,7 +95,5 @@ class RockAnswerModel(db.Model):
     author_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
     # 关系
-    question = db.relationship(RockQuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
-    # pop = db.relationship(PopQuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
-    # rock = db.relationship(RockQuestionModel, backref=db.backref("answers", order_by=create_time.desc()))
-    author = db.relationship(UserModel, backref="rockanswer")
+    question = db.relationship(RockQuestionModel, backref=db.backref("rockanswers", order_by=create_time.desc()))
+    author = db.relationship(UserModel, backref="rockanswers")
